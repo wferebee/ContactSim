@@ -15,7 +15,7 @@ Table of Contents:
 ## Technology Used - 
 * C#
 * ASP.NET Core Web API
-* LiteDB ( a light weight in memory db in this case)
+* LiteDB ( a light weight in-memory db in this case. - check appSettings for config)
 * Swagger UI
 
 * Repository Pattern for Dependency Injection of services
