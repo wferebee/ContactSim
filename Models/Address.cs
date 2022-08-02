@@ -1,24 +1,17 @@
 ﻿using LiteDB;
+using System.Text.Json.Serialization;
 
 namespace ContactSim.Models
 {
     public class Address
     {
-        [BsonField("street")]
+        [JsonPropertyName("street")]
         public string Street { get; set; }
-        [BsonField("city")]
+        [JsonPropertyName("city")]
         public string City { get; set; }
-        [BsonField("state")]
+        [JsonPropertyName("state")]
         public string State { get; set; }
-        [BsonField("zip")]
+        [JsonPropertyName("zip")]
         public int Zip { get; set; }
-
-        public Address(string street, string city, string state, int zip)
-        {
-            Street = street;
-            City = city;
-            State = state;
-            Zip = zip;
-        }
     }
 }

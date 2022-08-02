@@ -1,18 +1,13 @@
 ﻿using LiteDB;
+using System.Text.Json.Serialization;
 
 namespace ContactSim.Models
 {
     public class Phone
     {
-        [BsonField("number")]
+        [JsonPropertyName("number")]
         public string PhoneNumber { get; set; }
-        [BsonField("type")]
+        [JsonPropertyName("type")]
         public string PhoneType { get; set; }
-
-        public Phone(string phoneNumber, string phoneType)
-        {
-            PhoneNumber = phoneNumber;
-            PhoneType = phoneType;
-        }
     }
 }

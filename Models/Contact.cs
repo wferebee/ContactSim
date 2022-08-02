@@ -6,19 +6,17 @@ namespace ContactSim.Models
     public class Contact
     {
         [BsonId]
-        [BsonField("id")]
         [JsonIgnore]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [BsonField("name")]
+        [JsonPropertyName("name")]
         public Name NameInfo { get; set; }
-        [BsonField("adress")]
+        [JsonPropertyName("address")]
         public Address AddressInfo { get; set; }
-        [BsonField("phone")]
-        public Phone[] PhoneInfoArray { get; set; } = new Phone[3];
-        [BsonField("email")]
+        [JsonPropertyName("phone")]
+        public Phone[] PhoneInfo { get; set; } = new Phone[3];
+        [JsonPropertyName("email")]
         public string Email { get; set; }
-
-
     }
 }
