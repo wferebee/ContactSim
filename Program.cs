@@ -1,3 +1,8 @@
+using ContactSim.Interfaces.ILiteDbSetup;
+using ContactSim.Interfaces.IServices;
+using ContactSim.LiteDbSetup;
+using ContactSim.Services;
+
 namespace ContactSim
 {
     public class Program
@@ -8,11 +13,17 @@ namespace ContactSim
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+
+            builder.Services.AddControllers(options => options.SuppressAsyncSuffixInActionNames = false);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddSingleton<ILiteDbContext, LiteDbContext>();
+            builder.Services.Configure<LiteDbOptions>(
+               builder.Configuration.GetSection(LiteDbOptions.DatabaseOptions));
+            
+            builder.Services.AddTransient<IContactService, ContactService>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
