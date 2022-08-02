@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ContactSim.Controllers
 {
     #region DI, Setup, and Constructor
-    [Route("api/contact")]
+    [Route("api/contacts")]
     [ApiController]
     public class ContactController : ControllerBase
     {
@@ -97,7 +97,7 @@ namespace ContactSim.Controllers
 
 
         [HttpPost]
-        [Route("SeedDB")]
+        [Route("seed-db")]
         public ActionResult<List<Contact>> SeedDB(List<Contact> contacts)
         {
             //Returns a Document ID

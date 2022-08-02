@@ -38,6 +38,7 @@ Table of Contents:
 * Build the solution
 * May need to restore Nuget packages
 * Run in Debug mode to test with Swagger UI or Test it with other apps like Insomnia or Postman
+* Copy entire SeedFile.txt and paste its contents into the text area for the api/contacts/seed-db api request - This will give the user some data to play around with
 
 
 ## Testing - 

@@ -1,0 +1,390 @@
+﻿[
+  {
+    "name": {
+      "first": "John",
+      "middle": "A",
+      "last": "Daily"
+    },
+    "address": {
+      "street": "410 Village Gate Drive",
+      "city": "Midlothian",
+      "state": "Va",
+      "zip": 23114
+    },
+    "phone": [
+      {
+        "number": "8045768594",
+        "type": "home"
+      },
+      {
+        "number": "8041234567",
+        "type": "cell"
+      },
+      {
+        "number": "8047654321",
+        "type": "work"
+      }
+    ],
+    "email": "jd123@gmail.com"
+  },
+  {
+    "name": {
+      "first": "Willie",
+      "middle": "B",
+      "last": "MakeIt"
+    },
+    "address": {
+      "street": "8232 highland Drive",
+      "city": "Richmond",
+      "state": "Va",
+      "zip": 23145
+    },
+    "phone": [
+      {
+        "number": "8472333113",
+        "type": "cell"
+      },
+        {
+        "number": "8476543762",
+        "type": "home"
+      }
+    ],
+    "email": "willhemakeit@gmail.com"
+  },
+  {
+    "name": {
+      "first": "Jacob",
+      "middle": "C",
+      "last": "Lowe"
+    },
+    "address": {
+      "street": "346 Goode Street",
+      "city": "Powhatan",
+      "state": "Va",
+      "zip": 87654
+    },
+    "phone": [
+      {
+        "number": "897654733",
+        "type": "cell"
+      }
+    ],
+    "email": "yoyoyo@gmail.com"
+  },
+  {
+    "name": {
+      "first": "Mark",
+      "middle": "Sam",
+      "last": "Clements"
+    },
+    "address": {
+      "street": "9998 Bigg Hill Road",
+      "city": "Sia",
+      "state": "Ms",
+      "zip": 11232
+    },
+    "phone": [
+      {
+        "number": "9887654567",
+        "type": "home"
+      },
+        {
+        "number": "8215743594",
+        "type": "work"
+      }
+    ],
+    "email": "mtwainnn@gmail.com"
+  },
+    {
+    "name": {
+      "first": "Cormac",
+      "middle": "Mystery",
+      "last": "McCarthy"
+    },
+    "address": {
+      "street": "9999 IceyMole Circle",
+      "city": "Anchorage",
+      "state": "Alaska",
+      "zip": 44454
+    },
+    "phone": [
+      {
+        "number": "877564732",
+        "type": "cell"
+      },
+        {
+        "number": "877164322",
+        "type": "work"
+      },
+        {
+        "number": "877583562",
+        "type": "other"
+      }
+    ],
+    "email": "thelongiceroad@aol.com"
+  },
+  {
+    "name": {
+      "first": "Mark",
+      "middle": "Z",
+      "last": "Danielewiski"
+    },
+    "address": {
+      "street": "000 Nowhere",
+      "city": "Unknown",
+      "state": "OfBliss",
+      "zip": 99999
+    },
+    "phone": [
+      {
+        "number": "888444555",
+        "type": "home"
+      }
+    ],
+    "email": "houseofleaves@yahoo.com"
+  },
+  {
+    "name": {
+      "first": "Jose",
+      "middle": "Sinmala",
+      "last": "Remirez"
+    },
+    "address": {
+      "street": "432 Yucatan Calle",
+      "city": "Mexico D.F.",
+      "state": "Mexico ",
+      "zip": 3343222
+    },
+    "phone": [
+      {
+        "number": "7771245783",
+        "type": "home"
+      }
+    ],
+    "email": "yosoynumero1@aol.com"
+  },
+  {
+    "name": {
+      "first": "Lewis",
+      "middle": "B",
+      "last": "Ginter"
+    },
+    "address": {
+      "street": "1800 Davis Street",
+      "city": "Richmond",
+      "state": "Va",
+      "zip": 23139
+    },
+    "phone": [
+      {
+        "number": "8045786543",
+        "type": "cell"
+      },
+      {
+        "number": "8045643752",
+        "type": "work"
+      }
+    ],
+    "email": "springflowers@lewis.ginter.com"
+  },
+    {
+    "name": {
+      "first": "Nick",
+      "middle": "k",
+      "last": "Cannon"
+    },
+    "address": {
+      "street": "777 Wildville Road",
+      "city": "Nashville",
+      "state": "Tn",
+      "zip": 22345
+    },
+    "phone": [
+      {
+        "number": "8034533543",
+        "type": "cell"
+      },
+      {
+        "number": "8033667672",
+        "type": "work"
+      },
+            {
+        "number": "8031212352",
+        "type": "home"
+      }
+    ],
+    "email": "wildnout@yahoo.com"
+  },
+  {
+    "name": {
+      "first": "Susie",
+      "middle": "Thomas",
+      "last": "Turner"
+    },
+    "address": {
+      "street": "888 Boring Street",
+      "city": "Midlothian",
+      "state": "Va",
+      "zip": 23134
+    },
+    "phone": [
+      {
+        "number": "8049776532",
+        "type": "cell"
+      },
+      {
+        "number": "8045614506",
+        "type": "work"
+      },
+            {
+        "number": "8045164509",
+        "type": "home"
+      }
+    ],
+    "email": "boringcompanyperson@bg.com"
+  },
+  {
+    "name": {
+      "first": "Laura",
+      "middle": "Plummet",
+      "last": "Fischer"
+    },
+    "address": {
+      "street": "123 ABC Way",
+      "city": "Imagine",
+      "state": "Al",
+      "zip": 98765
+    },
+    "phone": [
+      {
+        "number": "9996543213",
+        "type": "cell"
+      },
+      {
+        "number": "9994767313",
+        "type": "work"
+      },
+            {
+        "number": "9999182736",
+        "type": "home"
+      }
+    ],
+    "email": "lpf123@gmail.com"
+  },
+  {
+    "name": {
+      "first": "Corinne",
+      "middle": "Ohana",
+      "last": "Brisko"
+    },
+    "address": {
+      "street": "1234 Worksalot Way",
+      "city": "Springfield",
+      "state": "Ms",
+      "zip": 34532
+    },
+    "phone": [
+      {
+        "number": "3347865432",
+        "type": "work"
+      },
+      {
+        "number": "3345649018",
+        "type": "work"
+      },
+            {
+        "number": "3345121272",
+        "type": "work"
+      }
+    ],
+    "email": "worksfromcar@gmail.com"
+  },
+    {
+    "name": {
+      "first": "Jessica",
+      "middle": "M",
+      "last": "Loving"
+    },
+    "address": {
+      "street": "834 Easy STreet",
+      "city": "Hateras",
+      "state": "Nc",
+      "zip": 23546
+    },
+    "phone": [
+      {
+        "number": "443567434",
+        "type": "cell"
+      }
+    ],
+    "email": "lovestofish@wahoo.com"
+  },
+  {
+    "name": {
+      "first": "Stacy",
+      "middle": "Clove",
+      "last": "Shroeder"
+    },
+    "address": {
+      "street": "983474 Salty Rock Terrace",
+      "city": "Phoenix",
+      "state": "Az",
+      "zip": 87654
+    },
+    "phone": [
+       {
+        "number": "7845634220",
+        "type": "work"
+      },
+      {
+        "number": "7844574221",
+        "type": "home"
+      },
+            {
+        "number": "7845634222",
+        "type": "cell"
+      }
+    ],
+    "email": "string"
+  },
+  {
+    "name": {
+      "first": "Luisa",
+      "middle": "Rottella",
+      "last": "Madrigal"
+    },
+    "address": {
+      "street": "34895 Magic Way",
+      "city": "Bogata",
+      "state": "Colombia",
+      "zip": 4738521
+    },
+    "phone": [
+      {
+        "number": "5555555555",
+        "type": "cell"
+      }
+    ],
+    "email": "encantomusical@disney.com"
+  },
+  {
+    "name": {
+      "first": "Marcy",
+      "middle": "S",
+      "last": "Playground"
+    },
+    "address": {
+      "street": "2513",
+      "city": "New Yorik City",
+      "state": "New York",
+      "zip": 88543
+    },
+    "phone": [
+      {
+        "number": "5332122256",
+        "type": "home"
+      }
+    ],
+    "email": "nyisforlovers2@gmail.com"
+  }
+]
