@@ -57,7 +57,7 @@ I prefer to use Postman normally, but by running the build in debug mode you can
 
 ## Future Considerations -
 * Add a seed file for easier testing
-* Create a post method that can take a seed file, or seed the db with the ContactController Constructor
+* Create a post method that can take a seed file, or seed the db through one of the Controller's constructors, or another automatic method
 
 
 ## Please let me know if you have any questions, comments, concerns, or suggestions!
