@@ -19,7 +19,10 @@ namespace VirtualDirectory.Controllers
         public ActionResult<IEnumerable<Contact>> Get()
         {
             IEnumerable<Contact> contacts = _contactService.FindAll();
-
+            if (!contacts.Any())
+            {
+                return StatusCode(200, "No Content Found");
+            }
             return Ok(contacts);
         }
 
@@ -27,7 +30,11 @@ namespace VirtualDirectory.Controllers
         public ActionResult<Contact> Get(int id)
         {
             Contact foundContact = _contactService.FindById(id);
-            return StatusCode(200, foundContact);
+            if (foundContact == null)
+            {
+                return BadRequest();
+            }
+                return StatusCode(200, foundContact);
         }
 
         [HttpPost]
@@ -61,13 +68,11 @@ namespace VirtualDirectory.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            //returns a bool, so do something with it
-
             bool didDelete = _contactService.Delete(id);
 
             if (!didDelete) { return BadRequest(); }
 
-            return StatusCode(200, $"Contact with ID: {id} - was  successfully DELETED");
+            return StatusCode(200, $"Contact with ID: {id} was successfully DELETED");
         }
 
 

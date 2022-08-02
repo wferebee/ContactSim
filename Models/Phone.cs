@@ -7,6 +7,7 @@ namespace ContactSim.Models
     {
         [JsonPropertyName("number")]
         public string PhoneNumber { get; set; }
+
         [JsonPropertyName("type")]
         public string PhoneType { get; set; }
     }

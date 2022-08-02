@@ -8,6 +8,7 @@ namespace ContactSim.Services
 {
     public class ContactService : IContactService
     {
+        #region DI Setup and Constructor
         private readonly ILiteDbContext _liteDbContext;
         private LiteDatabase _liteDb;
 
@@ -16,39 +17,37 @@ namespace ContactSim.Services
             _liteDbContext = liteDbContext;
             _liteDb = _liteDbContext.Database;
         }
-        public int Insert(Contact c)
-        {
-            return _liteDb.GetCollection<Contact>("Contacts")
-                .Insert(c);
-
-        }
+        #endregion
 
         public IEnumerable<ContactResponse> FindAll()
         {
+
             return _liteDb.GetCollection<ContactResponse>("Contacts")
                .FindAll();
-
         }
         public ContactResponse FindById(int id)
         {
             return _liteDb.GetCollection<ContactResponse>("Contacts").Find(x => x.Id == id).FirstOrDefault();
+        }
 
+        public int Insert(Contact c)
+        {
+            return _liteDb.GetCollection<Contact>("Contacts")
+                .Insert(c);
         }
 
         public bool Delete(int id)
         {
-
             var contactToDelete = _liteDb.GetCollection<Contact>("Contacts").Find(x => x.Id == id).FirstOrDefault();
             if (contactToDelete != null)
             {
                 return _liteDb.GetCollection<Contact>("Contacts").Delete(id);
             }
             return false;
-
         }
+
         public bool UpdateContact(Contact contact)
         {
-
             bool didUpdate = _liteDb.GetCollection<Contact>("Contacts")
            .Update(contact.Id, contact);
             return didUpdate;
@@ -74,7 +73,6 @@ namespace ContactSim.Services
 
             return callList;
         }
-
 
     }
 }

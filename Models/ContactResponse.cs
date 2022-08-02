@@ -12,10 +12,13 @@ namespace ContactSim.Models
 
         [JsonPropertyName("name")]
         public Name NameInfo { get; set; }
+
         [JsonPropertyName("address")]
         public Address AddressInfo { get; set; }
+
         [JsonPropertyName("phone")]
         public Phone[] PhoneInfo { get; set; } = new Phone[3];
+
         [JsonPropertyName("email")]
         public string Email { get; set; }
     }
