@@ -1,14 +1,15 @@
 ﻿using LiteDB;
+using System.Text.Json.Serialization;
 
 namespace ContactSim.Models
 {
     public class Name
     {
-        [BsonField("first")]
+        [JsonPropertyName("first")]
         public string First { get; set; }
-        [BsonField("middle")]
+        [JsonPropertyName("middle")]
         public string Middle { get; set; }
-        [BsonField("last")]
+        [JsonPropertyName("last")]
         public string Last { get; set; }
     }
 }

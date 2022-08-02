@@ -1,8 +1,12 @@
-﻿namespace ContactSim.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ContactSim.Models
 {
-    public class CallListMember : Contact
+    public class CallListMember
     {
+        [JsonPropertyName("name")]
         public Name MemberName { get; set; }
+        [JsonPropertyName("phone")]
         public string HomePhone { get; set; }
 
         public CallListMember(Contact contact)

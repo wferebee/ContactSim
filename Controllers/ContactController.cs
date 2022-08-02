@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VirtualDirectory.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/contacts")]
     [ApiController]
     public class ContactController : ControllerBase
     {
@@ -22,8 +22,6 @@ namespace VirtualDirectory.Controllers
 
             return Ok(contacts);
         }
-
-
 
         [HttpGet("{id}")]
         public ActionResult<Contact> Get(int id)

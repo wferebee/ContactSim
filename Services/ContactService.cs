@@ -64,8 +64,7 @@ namespace ContactSim.Services
             var filteredContacts = from contact in contacts
                                    from nums in contact.PhoneInfo
                                    where nums.PhoneType == "home"
-                                   orderby contact.NameInfo.Last descending,
-                                        contact.NameInfo.First descending
+                                   orderby contact.NameInfo.Last, contact.NameInfo.First
                                    select new CallListMember(contact);
 
             foreach (var con in filteredContacts)
