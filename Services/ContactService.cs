@@ -2,9 +2,9 @@
 using ContactSim.Interfaces.IServices;
 using ContactSim.Models;
 using LiteDB;
-using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualDirectory.Interfaces.Services
+
+namespace ContactSim.Services
 {
     public class ContactService : IContactService
     {
