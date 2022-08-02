@@ -15,5 +15,9 @@ namespace ContactSim.Interfaces.IServices
         bool UpdateContact(Contact contact);
 
         IEnumerable<CallListMember> GenerateCallList();
+
+        List<int> SeedDB(List<Contact> contacts);
+
+        List<ContactResponse> FindAllById(List<int> ids);
     }
 }

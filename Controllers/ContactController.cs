@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ContactSim.Controllers
 {
     #region DI, Setup, and Constructor
-    [Route("api/contacts")]
+    [Route("api/contact")]
     [ApiController]
     public class ContactController : ControllerBase
     {
@@ -15,7 +15,7 @@ namespace ContactSim.Controllers
         {
             _contactService = contactService;
         }
-    #endregion
+        #endregion
 
         //Get All Contacts
         [HttpGet]
@@ -38,7 +38,7 @@ namespace ContactSim.Controllers
             {
                 return BadRequest();
             }
-                return StatusCode(200, foundContact);
+            return StatusCode(200, foundContact);
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace ContactSim.Controllers
 
             //Check for Document ID then find and return newly created Object
             if (id > 0)
-                return StatusCode(200, _contactService.FindById(contact.Id));
+                return StatusCode(200, _contactService.FindById(id));
             else
                 return BadRequest();
         }
@@ -82,8 +82,38 @@ namespace ContactSim.Controllers
 
             return StatusCode(200, $"Contact with ID: {id} was successfully DELETED");
         }
+        [HttpGet]
+        [Route("call-list")]
+        public ActionResult<IEnumerable<Contact>> GetCallList()
+        {
+            IEnumerable<CallListMember> contacts = _contactService.GenerateCallList();
+
+            if (!contacts.Any())
+            {
+                return StatusCode(200, "No Content Found");
+            }
+            return Ok(contacts);
+        }
 
 
+        [HttpPost]
+        [Route("SeedDB")]
+        public ActionResult<List<Contact>> SeedDB(List<Contact> contacts)
+        {
+            //Returns a Document ID
+            List<int> createdIds = _contactService.SeedDB(contacts);
 
+            List<ContactResponse> contactResponses = _contactService.FindAllById(createdIds);
+
+
+            //Check for Document ID then find and return newly created Object
+            if (contactResponses.Any())
+            {
+                return StatusCode(200, contactResponses);
+            }
+
+            else
+                return BadRequest();
+        }
     }
 }

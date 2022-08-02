@@ -81,5 +81,32 @@ namespace ContactSim.Services
             return callList;
         }
 
+        public List<int> SeedDB(List<Contact> contacts)
+        {
+            List<int> createdIds = new();
+            var col = _liteDb.GetCollection<Contact>("Contacts");
+
+            foreach (var contact in contacts)
+            {
+                int temp = col.Insert(contact);
+                createdIds.Add(temp);
+            }
+            return createdIds;
+        }
+
+        public List<ContactResponse> FindAllById(List<int> ids)
+        {
+            List<ContactResponse> createdContacts = new();
+
+            foreach (var c in ids)
+            {
+                if (c > 0)
+                {
+                    var createdContact = FindById(c);
+                    createdContacts.Add(createdContact);
+                }
+            }
+            return createdContacts;
+        }
     }
 }
