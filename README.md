@@ -57,8 +57,10 @@ I prefer to use Postman normally, but by running the build in debug mode you can
 ![Swagger4](https://user-images.githubusercontent.com/53095806/182326662-a8c93612-c3f4-4052-9c56-d33574f5c29e.jpg)
 
 ## Future Considerations -
-* Add a seed file for easier testing
-* Create a post method that can take a seed file, or seed the db through one of the Controller's constructors, or another automatic method
+* ~~Add a seed file for easier testing~~
+* ~~Create a post method that can take a seed file, or seed the db through one of the Controller's constructors, or another automatic method~~
+* Add better error handling, null checks, etc.
+* Make the large linq query in ContactService case insensitive
 
 
 ## Please let me know if you have any questions, comments, concerns, or suggestions!
