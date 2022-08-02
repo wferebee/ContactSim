@@ -27,7 +27,7 @@ namespace ContactSim.Services
 
         public ContactResponse FindById(int id)
         {
-            // Get Contact where ID matches
+            //Get Contact where ID matches
             return _liteDb.GetCollection<ContactResponse>("Contacts").Find(x => x.Id == id).FirstOrDefault();
         }
 
@@ -62,17 +62,18 @@ namespace ContactSim.Services
             // We only need to return Name info and Home Phone Number
             var callList = new List<CallListMember>();
 
-            // Add all contacts to a list to then query - would like to query the DB instead of creating a list of all the Contacts first
+            //Add all contacts to a list to then query - would like to query the DB instead of creating a list of all the Contacts first
             var contacts = _liteDb.GetCollection<Contact>("Contacts")
                .FindAll();
 
+            //Would like to make this comparission case insensitive but adding nums.PhoneType.ToLower() doesnt work as expected - see: https://stackoverflow.com/questions/3360772/linq-contains-case-insensitive
             var filteredContacts = from contact in contacts
                                    from nums in contact.PhoneInfo
-                                   where nums.PhoneType == "home"
+                                   where nums.PhoneType == "home" 
                                    orderby contact.NameInfo.Last, contact.NameInfo.First // ordering by lastname and then firstname
                                    select new CallListMember(contact);
 
-            //add filtered list to our CallListMembers List "callList"
+            //Add filtered list to our CallListMembers List "callList"
             foreach (var con in filteredContacts)
             {
                 callList.Add(con);
