@@ -2,8 +2,10 @@
 using ContactSim.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualDirectory.Controllers
+namespace ContactSim.Controllers
 {
+    //Had to make this controller becasue ContactControler doesnt like that I am using CallListMember Model - this was quickest fix
+    // - changed the routing to still show api/contacts/call-list though
     [Route("api/contacts/call-list")]
     [ApiController]
     public class CallListMemberController : ControllerBase
@@ -20,6 +22,10 @@ namespace VirtualDirectory.Controllers
         {
             IEnumerable<CallListMember> contacts = _contactService.GenerateCallList();
 
+            if (!contacts.Any())
+            {
+                return StatusCode(200, "No Content Found");
+            }
             return Ok(contacts);
         }
 

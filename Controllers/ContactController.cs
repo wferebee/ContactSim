@@ -2,8 +2,9 @@
 using ContactSim.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualDirectory.Controllers
+namespace ContactSim.Controllers
 {
+    #region DI, Setup, and Constructor
     [Route("api/contacts")]
     [ApiController]
     public class ContactController : ControllerBase
@@ -14,7 +15,9 @@ namespace VirtualDirectory.Controllers
         {
             _contactService = contactService;
         }
+    #endregion
 
+        //Get All Contacts
         [HttpGet]
         public ActionResult<IEnumerable<Contact>> Get()
         {
@@ -26,6 +29,7 @@ namespace VirtualDirectory.Controllers
             return Ok(contacts);
         }
 
+        //Get Contact by ID
         [HttpGet("{id}")]
         public ActionResult<Contact> Get(int id)
         {
@@ -40,7 +44,10 @@ namespace VirtualDirectory.Controllers
         [HttpPost]
         public ActionResult<Contact> Post(Contact contact)
         {
+            //Returns a Document ID
             var id = _contactService.Insert(contact);
+
+            //Check for Document ID then find and return newly created Object
             if (id > 0)
                 return StatusCode(200, _contactService.FindById(contact.Id));
             else
@@ -57,6 +64,7 @@ namespace VirtualDirectory.Controllers
                 return NotFound();
             }
 
+            //Contact Exists? then try to update it
             updatedContact.Id = contact.Id;
             bool didUpdate = _contactService.UpdateContact(updatedContact);
 

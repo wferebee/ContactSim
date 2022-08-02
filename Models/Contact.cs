@@ -5,6 +5,7 @@ namespace ContactSim.Models
 {
     public class Contact
     {
+        //Base Class for Contact Response - Could be Base CLass for CallListMembers too
         [BsonId]
         [JsonIgnore]
         [JsonPropertyName("id")]
