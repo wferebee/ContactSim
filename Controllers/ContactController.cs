@@ -23,6 +23,8 @@ namespace VirtualDirectory.Controllers
             return Ok(contacts);
         }
 
+
+
         [HttpGet("{id}")]
         public ActionResult<Contact> Get(int id)
         {

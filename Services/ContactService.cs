@@ -54,6 +54,28 @@ namespace ContactSim.Services
             return didUpdate;
         }
 
+        public IEnumerable<CallListMember> GenerateCallList()
+        {
+            var callList = new List<CallListMember>();
+
+            var contacts = _liteDb.GetCollection<Contact>("Contacts")
+               .FindAll();
+
+            var filteredContacts = from contact in contacts
+                                   from nums in contact.PhoneInfo
+                                   where nums.PhoneType == "home"
+                                   orderby contact.NameInfo.Last descending,
+                                        contact.NameInfo.First descending
+                                   select new CallListMember(contact);
+
+            foreach (var con in filteredContacts)
+            {
+                callList.Add(con);
+            }
+
+            return callList;
+        }
+
 
     }
 }

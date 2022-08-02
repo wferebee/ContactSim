@@ -13,5 +13,7 @@ namespace ContactSim.Interfaces.IServices
         bool Delete(int id);
 
         bool UpdateContact(Contact contact);
+
+        IEnumerable<CallListMember> GenerateCallList();
     }
 }
