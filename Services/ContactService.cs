@@ -1,33 +1,59 @@
-﻿using ContactSim.Interfaces.IServices;
+﻿using ContactSim.Interfaces.ILiteDbSetup;
+using ContactSim.Interfaces.IServices;
 using ContactSim.Models;
+using LiteDB;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ContactSim.Services
+namespace VirtualDirectory.Interfaces.Services
 {
     public class ContactService : IContactService
     {
-        public bool Delete(int id)
+        private readonly ILiteDbContext _liteDbContext;
+        private LiteDatabase _liteDb;
+
+        public ContactService(ILiteDbContext liteDbContext)
         {
-            throw new NotImplementedException();
+            _liteDbContext = liteDbContext;
+            _liteDb = _liteDbContext.Database;
+        }
+        public int Insert(Contact c)
+        {
+            return _liteDb.GetCollection<Contact>("Contacts")
+                .Insert(c);
+
         }
 
         public IEnumerable<ContactResponse> FindAll()
         {
-            throw new NotImplementedException();
-        }
+            return _liteDb.GetCollection<ContactResponse>("Contacts")
+               .FindAll();
 
+        }
         public ContactResponse FindById(int id)
         {
-            throw new NotImplementedException();
+            return _liteDb.GetCollection<ContactResponse>("Contacts").Find(x => x.Id == id).FirstOrDefault();
+
         }
 
-        public int Insert(Contact c)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
-        }
 
+            var contactToDelete = _liteDb.GetCollection<Contact>("Contacts").Find(x => x.Id == id).FirstOrDefault();
+            if (contactToDelete != null)
+            {
+                return _liteDb.GetCollection<Contact>("Contacts").Delete(id);
+            }
+            return false;
+
+        }
         public bool UpdateContact(Contact contact)
         {
-            throw new NotImplementedException();
+
+            bool didUpdate = _liteDb.GetCollection<Contact>("Contacts")
+           .Update(contact.Id, contact);
+            return didUpdate;
         }
+
+
     }
 }

@@ -1,43 +1,76 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContactSim.Interfaces.IServices;
+using ContactSim.Models;
+using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace ContactSim.Controllers
+namespace VirtualDirectory.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ContactController : ControllerBase
     {
-        // GET: api/<ContactController>
+        private readonly IContactService _contactService;
+
+        public ContactController(IContactService contactService)
+        {
+            _contactService = contactService;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<IEnumerable<Contact>> Get()
         {
-            return new string[] { "value1", "value2" };
+            IEnumerable<Contact> contacts = _contactService.FindAll();
+
+            return Ok(contacts);
         }
 
-        // GET api/<ContactController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Contact> Get(int id)
         {
-            return "value";
+            Contact foundContact = _contactService.FindById(id);
+            return StatusCode(200, foundContact);
         }
 
-        // POST api/<ContactController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Contact> Post(Contact dto)
         {
+            var id = _contactService.Insert(dto);
+            if (id > 0)
+                return StatusCode(200, _contactService.FindById(dto.Id));
+            else
+                return BadRequest();
         }
 
-        // PUT api/<ContactController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Contact> Update(Contact updatedContact, int id)
         {
+            var contact = _contactService.FindById(id);
+
+            if (contact is null)
+            {
+                return NotFound();
+            }
+
+            updatedContact.Id = contact.Id;
+            bool didUpdate = _contactService.UpdateContact(updatedContact);
+
+            if (!didUpdate) { return BadRequest(); }
+
+            return StatusCode(200, _contactService.FindById(updatedContact.Id));
         }
 
-        // DELETE api/<ContactController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            //returns a bool, so do something with it
+
+            bool didDelete = _contactService.Delete(id);
+
+            if (!didDelete) { return BadRequest(); }
+
+            return StatusCode(200, $"Contact with ID: {id} - was  successfully DELETED");
         }
+
+
+
     }
 }
