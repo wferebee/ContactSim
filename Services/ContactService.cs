@@ -36,6 +36,13 @@ namespace ContactSim.Services
                 .Insert(c);
         }
 
+        public bool UpdateContact(Contact contact)
+        {
+            bool didUpdate = _liteDb.GetCollection<Contact>("Contacts")
+           .Update(contact.Id, contact);
+            return didUpdate;
+        }
+
         public bool Delete(int id)
         {
             var contactToDelete = _liteDb.GetCollection<Contact>("Contacts").Find(x => x.Id == id).FirstOrDefault();
@@ -44,13 +51,6 @@ namespace ContactSim.Services
                 return _liteDb.GetCollection<Contact>("Contacts").Delete(id);
             }
             return false;
-        }
-
-        public bool UpdateContact(Contact contact)
-        {
-            bool didUpdate = _liteDb.GetCollection<Contact>("Contacts")
-           .Update(contact.Id, contact);
-            return didUpdate;
         }
 
         public IEnumerable<CallListMember> GenerateCallList()

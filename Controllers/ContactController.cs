@@ -38,11 +38,11 @@ namespace VirtualDirectory.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Contact> Post(Contact dto)
+        public ActionResult<Contact> Post(Contact contact)
         {
-            var id = _contactService.Insert(dto);
+            var id = _contactService.Insert(contact);
             if (id > 0)
-                return StatusCode(200, _contactService.FindById(dto.Id));
+                return StatusCode(200, _contactService.FindById(contact.Id));
             else
                 return BadRequest();
         }
